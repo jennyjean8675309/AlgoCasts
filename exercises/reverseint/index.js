@@ -30,24 +30,29 @@
 
 //Using Math.sign()
 
-function reverseInt(n) {
-  if (Math.sign(n) === 0) {
-    return 0
-  } else if (Math.sign(n) === -1) {
-    let reversedArray = n.toString().split('').slice(1).reverse()
-    while (reversedArray[0] === '0') {
-      reversedArray.shift()
-    }
-    return parseInt(['-', ...reversedArray].join(''), 10)
-  } else if (Math.sign(n) === 1) {
-    let reversedArray = n.toString().split('').reverse()
-    while (reversedArray[0] === '0') {
-      reversedArray.shift()
-    }
-    return parseInt(reversedArray.join(''), 10)
-  }
-}
+// function reverseInt(n) {
+//   if (Math.sign(n) === 0) {
+//     return 0
+//   } else if (Math.sign(n) === -1) {
+//     let reversedArray = n.toString().split('').slice(1).reverse()
+//     while (reversedArray[0] === '0') {
+//       reversedArray.shift()
+//     }
+//     return parseInt(['-', ...reversedArray].join(''), 10)
+//   } else if (Math.sign(n) === 1) {
+//     let reversedArray = n.toString().split('').reverse()
+//     while (reversedArray[0] === '0') {
+//       reversedArray.shift()
+//     }
+//     return parseInt(reversedArray.join(''), 10)
+//   }
+// }
 
-reverseInt(-951)
+//Code along with solution in video
+function reverseInt(n) {
+  let reversed = n.toString().split('').reverse().join('')
+
+  return parseInt(reversed) * Math.sign(n)
+}
 
 module.exports = reverseInt;
