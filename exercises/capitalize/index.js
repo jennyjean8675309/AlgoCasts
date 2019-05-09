@@ -7,16 +7,42 @@
 //   capitalize('a lazy fox') --> 'A Lazy Fox'
 //   capitalize('look, it is working!') --> 'Look, It Is Working!'
 
-function capitalize(str) {
-  let wordArray = str.split(' ')
-  let capitalizedArray = []
+// function capitalize(str) {
+//   let wordArray = str.split(' ')
+//   let capitalizedArray = []
+//
+//   for (let word of wordArray) {
+//     let firstLetter = word[0]
+//     capitalizedArray.push(word.replace(firstLetter, firstLetter.toUpperCase()))
+//   }
+//
+//   return capitalizedArray.join(' ')
+// }
 
-  for (let string of wordArray) {
-    let firstLetter = string[0]
-    capitalizedArray.push(string.replace(firstLetter, firstLetter.toUpperCase()))
+//code-along solution
+// function capitalize(str) {
+//   const words = []
+//
+//   for (let word of str.split(' ')) {
+//     words.push(word[0].toUpperCase() + word.slice(1))
+//   }
+//
+//   return words.join(' ')
+// }
+
+//second code-along solution - this solution is not as easily readable as the first, would be harder for an engineer to understand at a glance
+function capitalize(str) {
+  let result = str[0].toUpperCase()
+
+  for (let i = 1; i < str.length; i++) {
+    if (str[i - 1] === ' ') {
+      result += str[i].toUpperCase()
+    } else {
+    result += str[i]
+    }
   }
 
-  return capitalizedArray.join(' ')
+  return result
 }
 
 let str = 'a lazy fox'
